@@ -26,24 +26,28 @@ Project ini adalah implementasi **Aspect-Based Sentiment Analysis (ABSA)** untuk
 ```
 aspect-based-sentiment-analysis-GTA-VI/
 ├── app/
-│ ├── api/
-│ │ └── main.py # FastAPI app
-│ ├── gradio/
-│ │ └── main.py # Gradio interface (opsional)
-│ └── inference/
-│ ├── aspect_extraction/
-│ │ └── model.py # Aspect extraction model class
-│ └── sentiment_classification/
-│ └── model.py # Sentiment classification model class
+│   ├── api/
+│   │   └── main.py                          # FastAPI app
+│   ├── gradio/
+│   │   └── main.py                          # Gradio interface (opsional)
+│   └── inference/
+│       ├── aspect_extraction/
+│       │   ├── model.py                     # Aspect extraction model class
+│       │   ├── main.py                      # Aspect extraction test model
+│       │   └── label_order.json             # Aspect label order config
+│       └── sentiment_classification/
+│           ├── model.py                     # Sentiment classification model class
+│           └── main.py                      # Sentiment classification test model
 │
 ├── streamlit/
-│ └── main.py # Streamlit app interface
+│   └── main.py                              # Streamlit app interface
 │
 ├── test/
-│ └── test_inference.py # Unit test for inference pipeline
+│   └── test_inference.py                    # Unit test for inference pipeline
 │
-├── requirements.txt # Python dependencies
-├── README.md # Project documentation
+├── requirements.txt                         # Python dependencies
+├── README.md                                # Project documentation
+
 ```
 ---
 
