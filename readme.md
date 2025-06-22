@@ -23,7 +23,7 @@ Project ini adalah implementasi **Aspect-Based Sentiment Analysis (ABSA)** untuk
 ---
 
 ## 📂 Struktur Project
-
+```
 aspect-based-sentiment-analysis-GTA-VI/
 ├── app/
 │ ├── api/
@@ -44,7 +44,7 @@ aspect-based-sentiment-analysis-GTA-VI/
 │
 ├── requirements.txt # Python dependencies
 ├── README.md # Project documentation
-
+```
 ---
 
 ## 🚀 Cara Menjalankan
