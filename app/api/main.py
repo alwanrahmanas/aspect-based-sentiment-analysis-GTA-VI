@@ -5,11 +5,15 @@ from functools import lru_cache
 from app.inference.aspect_extraction.model import PredictAspect
 from app.inference.sentiment_classification.model import PredictSentiment
 
-app = FastAPI()
+app = FastAPI(
+    title="Aspect-Based Sentiment Analysis API",
+    description="ABSA for GTA VI reviews using BERT models via FastAPI",
+    version="1.0.0"
+)
 
 # Request payload schema
 class SentimentRequest(BaseModel):
-    texts: list
+    texts: list[str]
 
 # Dependency Injection with cache
 @lru_cache()
@@ -20,12 +24,12 @@ def get_aspect_model():
 def get_sentiment_model():
     return PredictSentiment()
 
-# Root test
+# Root endpoint (status check)
 @app.get("/")
 def read_root():
-    return {"status": "running"}
+    return {"status": "running", "message": "Welcome to ABSA API"}
 
-# Endpoint prediksi
+# Prediction endpoint
 @app.post("/predict")
 def predict_sentiment(
     request: SentimentRequest,
@@ -55,5 +59,7 @@ def predict_sentiment(
         })
 
     return {"results": result_list}
-# Run the app with: uvicorn app.api.main:app --reload
-# Access the API at: http://
+
+# To run:
+# uvicorn app.api.main:app --reload
+# Access docs: http://127.0.0.1:8000/docs
