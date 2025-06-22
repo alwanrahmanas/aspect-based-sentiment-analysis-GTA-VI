@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="assets/logo.png" alt="ABSA GTA VI" width="250"/>
+  <img src="[https://i.imgur.com/xxxxx.png](https://i.imgur.com/Q7cAm9u.png)" alt="ABSA GTA VI" width="250"/>
+</p>
+
 </p>
 
 # 🎮 Aspect-Based Sentiment Analysis: GTA VI Edition 🚀
