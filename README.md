@@ -13,7 +13,7 @@
   <img src="https://img.shields.io/badge/HuggingFace-🤗-yellow"/>
 </p>
 
-Project ini adalah implementasi **Aspect-Based Sentiment Analysis (ABSA)** untuk review GTA VI menggunakan kombinasi:
+This project is an implementation of Aspect-Based Sentiment Analysis (ABSA) for GTA VI reviews using a combination of:
 
 - 🐍 **FastAPI** — Backend REST API
 - 📊 **Streamlit** — Web UI interface
@@ -22,7 +22,7 @@ Project ini adalah implementasi **Aspect-Based Sentiment Analysis (ABSA)** untuk
 
 ---
 
-## 📂 Struktur Project
+## 📂 Project's Structure
 ```
 aspect-based-sentiment-analysis-GTA-VI/
 ├── app/
@@ -51,7 +51,7 @@ aspect-based-sentiment-analysis-GTA-VI/
 ```
 ---
 
-## 🚀 Cara Menjalankan
+## 🚀 How to Run
 
 ### 📦 Install Dependency
 
@@ -59,25 +59,25 @@ aspect-based-sentiment-analysis-GTA-VI/
 pip install -r requirements.txt
 ```
 
-🔥 Jalankan FastAPI (Backend API)
+🔥 Run FastAPI (Backend API)
 ```
 uvicorn app.api.main:app --reload
 ```
 
-📍 Akses di: http://127.0.0.1:8000/docs
+📍 Access on: http://127.0.0.1:8000/docs
 
-🎛️ Jalankan Streamlit (Frontend)
+🎛️ Run Streamlit (Frontend)
 ```
 streamlit run streamlit/main.py
 ```
-📍 Akses di: http://localhost:8501
+📍 Access on: http://localhost:8501
 
-(Opsional) 🎚️ Jalankan Gradio Interface
+(Optional) 🎚️ Run Gradio Interface
 ```
 python app/gradio/main.py
 ```
 
-📦 Fitur API
+📦 Feature API
 POST /predict
 Body:
 
@@ -101,8 +101,12 @@ Edit
 }
 ```
 
-📑 Author
-Alwan Rahmana
+## 📑 Author
 
-🚀 GitHub: alwanrahmanas
-📧 alwanrahmana@gmail.com
+**Alwan Rahmana S**
+
+- 🚀 **GitHub:** [alwanrahmanas](https://github.com/alwanrahmanas)
+- 📧 **Email:** [alwanrahmana@gmail.com](mailto:alwanrahmana@gmail.com)
+- 💼 **LinkedIn:** [Alwan Rahmana](https://www.linkedin.com/in/alwanrahmana/)
+- 🤗 **Hugging Face:** [alwanrahmana](https://huggingface.co/alwanrahmana/)
+
