@@ -83,18 +83,15 @@ Body:
 
 ```
 {
-  "texts": ["text review pertama", "text review kedua"]
+  "texts": ["text review"]
 }
 Response:
 
-json
-Copy
-Edit
 {
   "result": [
     {
-      "text": "text review pertama",
-      "aspects": ["story", "graphics"],
+      "text": "text review",
+      "aspects": ["Visual Graphic", "Nostalgia"],
       "sentiments": ["positive", "neutral"]
     }
   ]
