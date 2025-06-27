@@ -1,24 +1,42 @@
+import os
 import torch
 from torch import nn
-from transformers import BertTokenizer, BertForSequenceClassification
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import pandas as pd
+
 
 class PredictAspect(nn.Module):
     def __init__(self, 
-                 model_name='alwanrahmana/aspect-detection-bert-large',
+                 model_name='alwanrahmana/aspect-detection-modernbert-base-logweight-FocalLoss',
                  num_labels=6,
-                 threshold=0.25,
+                 threshold=0.30,
                  aspect_labels=None,
                  device=None):
         super(PredictAspect, self).__init__()
-        self.tokenizer = BertTokenizer.from_pretrained(model_name)
-        self.model = BertForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
+
+        # Path local simpanan model
+        local_dir = f"./app/inference/pretrained_models/{model_name.replace('/', '_')}"
+        
+        # Check apakah model sudah ada di local
+        if os.path.exists(local_dir) and os.listdir(local_dir):
+            print(f"✅ Local model found at {local_dir}. Loading from local...")
+            self.tokenizer = AutoTokenizer.from_pretrained(local_dir)
+            self.model = AutoModelForSequenceClassification.from_pretrained(local_dir, num_labels=num_labels)
+        else:
+            print(f"⬇️ Downloading model from Hugging Face Hub: {model_name} ...")
+            self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+            self.model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
+
+            os.makedirs(local_dir, exist_ok=True)
+            self.tokenizer.save_pretrained(local_dir)
+            self.model.save_pretrained(local_dir)
+            print(f"✅ Model saved to {local_dir}")
 
         # Hyperparams & device config
         self.GLOBAL_THRESHOLD = threshold
-        self.ASPECT_LABELS = aspect_labels if aspect_labels else ['Trailer & Hype',
-                                                                  'Visual Graphic',
-                                                                  'Plot and Character','Gameplay','Nostalgia','Rilis Game']
+        self.ASPECT_LABELS = aspect_labels if aspect_labels else [
+            'Visual Graphic', 'Gameplay', 'Release Game', 'Plot and Character', 'Nostalgia', 'Trailer & Hype'
+        ]
         self.DEVICE = device if device else ("cuda" if torch.cuda.is_available() else "cpu")
         self.model.to(self.DEVICE)
         self.model.eval()
@@ -72,5 +90,3 @@ class PredictAspect(nn.Module):
 
         df = pd.DataFrame(results)
         return df
-
-
