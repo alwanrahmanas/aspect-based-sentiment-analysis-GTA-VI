@@ -47,7 +47,7 @@ aspect-based-sentiment-analysis-GTA-VI/
 │
 ├── requirements.txt                         # Python dependencies
 ├── README.md                                # Project documentation
-
+├── render.yaml                              # Config FastAPI backend 
 ```
 ---
 
